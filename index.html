@@ -28,7 +28,7 @@
 </head>
 
 <body class="bg-white font-body text-text">
-  <header class="flex items-center justify-between px-4 sm:px-8 py-8 sm:py-16 bg-main-red">
+  <header class="flex items-center justify-between px-4 sm:px-8 py-8 sm:py-8 bg-main-red">
     <h1 class="text-white text-4xl sm:text-7xl font-title uppercase tracking-wide">
       Cycling Club Waregem
     </h1>
@@ -37,7 +37,7 @@
       class="h-16 sm:h-32 md:h-40 object-contain" />
   </header>
   <main>
-    <section id="over-ons" class="py-16 bg-off-white text-center px-4 sm:px-6 lg:px-8">
+    <section id="over-ons" class="py-8 bg-off-white text-center px-4 sm:px-6 lg:px-8">
       <!-- Heading -->
       <h2
         class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
@@ -73,58 +73,44 @@
         </ul>
       </div>
     </section>
-    <section id="sponsors" class="py-16 bg-white text-center px-4 sm:px-6 lg:px-8">
+    <section id="sponsors" class="py-8 bg-white text-center px-4 sm:px-6 lg:px-8 overflow-hidden">
       <h2
-        class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
+        class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide text-center mx-auto">
         Sponsors
       </h2>
-      <div class="relative w-full">
-        <!-- Carousel wrapper -->
-        <div class="flex animate-scroll whitespace-nowrap">
-          <!-- Repeat sponsor logos -->
-          <img src="/assets/img/sponsors/logo-ad-technics.webp" alt="AD Technics" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-alain-dewaele.webp" alt="Maatwerk & Interieur Alain Dewaele"
-            class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-belfius-waregem-vlaamse-ardennen.webp"
-            alt="Belfius Waregem & Vlaamse Ardennen" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-coiffure-stefanie.webp" alt="Coiffure Stefanie"
-            class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-electro-debeerst.webp" alt="Electro Debeerst"
-            class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-karekiet.webp" alt="Eetcafe De Karekiet" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-martroye-technics.webp" alt="Martroye Technics"
-            class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-matcars.webp" alt="Matcars" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-peerdeke.webp" alt="Taverne 't Peerdeke" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-transport-vansteenkiste.webp" alt="Transport Vansteenkist" <img
-            src="/assets/img/sponsors/logo-velo-fane.webp" alt="Velo Fane" class="h-24 mx-4 object-contain">
-          <!-- Repeat logos again for smooth infinite scroll -->
-          <img src="/assets/img/sponsors/logo-ad-technics.webp" alt="AD Technics" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-alain-dewaele.webp" alt="Maatwerk & Interieur Alain Dewaele"
-            class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-belfius-waregem-vlaamse-ardennen.webp"
-            alt="Belfius Waregem & Vlaamse Ardennen" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-coiffure-stefanie.webp" alt="Coiffure Stefanie"
-            class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-electro-debeerst.webp" alt="Electro Debeerst"
-            class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-karekiet.webp" alt="Eetcafe De Karekiet" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-martroye-technics.webp" alt="Martroye Technics"
-            class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-matcars.webp" alt="Matcars" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-peerdeke.webp" alt="Taverne 't Peerdeke" class="h-24 mx-4 object-contain">
-          <img src="/assets/img/sponsors/logo-transport-vansteenkiste.webp" alt="Transport Vansteenkist" <img
-            src="/assets/img/sponsors/logo-velo-fane.webp" alt="Velo Fane" class="h-24 mx-4 object-contain">
+
+      <!-- Visible strip -->
+      <div class="overflow-hidden">
+        <div class="flex animate-marquee">
+          <img src="/assets/img/sponsors/sponsor-banner.webp" alt="All sponsors"
+            class="h-16 md:h-24 w-auto max-w-none shrink-0">
+          <img src="/assets/img/sponsors/sponsor-banner.webp" alt="All sponsors"
+            class="h-16 md:h-24 w-auto max-w-none shrink-0">
         </div>
       </div>
+
+      <!-- Hidden list for screen readers & SEO -->
+      <ul class="sr-only">
+        <li>AD Technics</li>
+        <li>Alain Dewaele</li>
+        <li>Belfius Waregem & Vlaamse Ardennen</li>
+        <li>Coiffure Stefanie</li>
+        <li>Electro Debeerst</li>
+        <li>Eetcafe De Karekiet</li>
+        <li>Martroye Technics</li>
+        <li>Matcars</li>
+        <li>'t Peerdeke</li>
+        <li>Transport Vansteenkist</li>
+        <li>Velo Fane</li>
+      </ul>
     </section>
-    <section id="evenementen" class="py-16 bg-off-white text-center px-4 sm:px-6 lg:px-8">
+    <section id="evenementen" class="py-8 bg-off-white text-center px-4 sm:px-6 lg:px-8">
       <h2
         class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
         Evenementen
       </h2>
     </section>
-    <section id="contact" class="py-16 bg-white text-center px-4 sm:px-6 lg:px-8">
+    <section id="contact" class="py-8 bg-white text-center px-4 sm:px-6 lg:px-8">
       <h2
         class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
         Contact

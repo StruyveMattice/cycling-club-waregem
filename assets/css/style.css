@@ -185,12 +185,6 @@
   }
 }
 @layer utilities {
-  .collapse {
-    visibility: collapse;
-  }
-  .visible {
-    visibility: visible;
-  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -202,77 +196,32 @@
     white-space: nowrap;
     border-width: 0;
   }
-  .absolute {
-    position: absolute;
-  }
-  .relative {
-    position: relative;
-  }
-  .static {
-    position: static;
-  }
-  .container {
-    width: 100%;
-    @media (width >= 40rem) {
-      max-width: 40rem;
-    }
-    @media (width >= 48rem) {
-      max-width: 48rem;
-    }
-    @media (width >= 64rem) {
-      max-width: 64rem;
-    }
-    @media (width >= 80rem) {
-      max-width: 80rem;
-    }
-    @media (width >= 96rem) {
-      max-width: 96rem;
-    }
-  }
-  .mx-4 {
-    margin-inline: calc(var(--spacing) * 4);
-  }
   .mx-auto {
     margin-inline: auto;
   }
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
   }
-  .block {
-    display: block;
-  }
-  .contents {
-    display: contents;
-  }
   .flex {
     display: flex;
-  }
-  .hidden {
-    display: none;
   }
   .inline-block {
     display: inline-block;
   }
-  .table {
-    display: table;
-  }
   .h-16 {
     height: calc(var(--spacing) * 16);
   }
-  .h-24 {
-    height: calc(var(--spacing) * 24);
-  }
-  .w-full {
-    width: 100%;
+  .w-auto {
+    width: auto;
   }
   .max-w-3xl {
     max-width: var(--container-3xl);
   }
-  .transform {
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  .max-w-none {
+    max-width: none;
   }
-  .resize {
-    resize: both;
+  .shrink-0 {
+    flex-shrink: 0;
   }
   .list-inside {
     list-style-position: inside;
@@ -300,10 +249,8 @@
       margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
-  .truncate {
+  .overflow-hidden {
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
   .border-b-4 {
     border-bottom-style: var(--tw-border-style);
@@ -336,9 +283,6 @@
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
   }
-  .py-16 {
-    padding-block: calc(var(--spacing) * 16);
-  }
   .pb-1 {
     padding-bottom: calc(var(--spacing) * 1);
   }
@@ -347,9 +291,6 @@
   }
   .text-left {
     text-align: left;
-  }
-  .text-right {
-    text-align: right;
   }
   .font-body {
     font-family: var(--font-body);
@@ -377,9 +318,6 @@
     --tw-tracking: var(--tracking-wide);
     letter-spacing: var(--tracking-wide);
   }
-  .whitespace-nowrap {
-    white-space: nowrap;
-  }
   .text-text {
     color: var(--color-text);
   }
@@ -404,9 +342,9 @@
       padding-inline: calc(var(--spacing) * 8);
     }
   }
-  .sm\:py-16 {
+  .sm\:py-8 {
     @media (width >= 40rem) {
-      padding-block: calc(var(--spacing) * 16);
+      padding-block: calc(var(--spacing) * 8);
     }
   }
   .sm\:text-4xl {
@@ -425,6 +363,11 @@
     @media (width >= 40rem) {
       font-size: var(--text-lg);
       line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
+  }
+  .md\:h-24 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 24);
     }
   }
   .md\:h-40 {
@@ -453,37 +396,17 @@
   .font-body {
     font-family: var(--font-body);
   }
-  @keyframes scroll {
-    0% {
+  @keyframes marquee {
+    from {
       transform: translateX(0);
     }
-    100% {
-      transform: translateX(-50%);
+    to {
+      transform: translateX(-100%);
     }
   }
-  .animate-scroll {
-    animation: scroll 20s linear infinite;
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
   }
-}
-@property --tw-rotate-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-y {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-rotate-z {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-x {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-skew-y {
-  syntax: "*";
-  inherits: false;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
@@ -502,11 +425,6 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-rotate-x: initial;
-      --tw-rotate-y: initial;
-      --tw-rotate-z: initial;
-      --tw-skew-x: initial;
-      --tw-skew-y: initial;
       --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-tracking: initial;
