@@ -1,0 +1,27 @@
+{
+  "name": "cycling-club-waregem",
+  "version": "1.0.0",
+  "description": "Website for the Cycling Club Waregem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch",
+    "build": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StruyveMattice/cycling-club-waregem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/StruyveMattice/cycling-club-waregem/issues"
+  },
+  "homepage": "https://github.com/StruyveMattice/cycling-club-waregem#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}
