@@ -548,6 +548,13 @@
       }
     }
   }
+  .hover\:text-main-red {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-main-red);
+      }
+    }
+  }
   .hover\:text-off-white {
     &:hover {
       @media (hover: hover) {
