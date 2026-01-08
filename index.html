@@ -28,13 +28,13 @@
 </head>
 
 <body class="bg-white font-body text-text">
-  <header class="flex items-center justify-between px-4 sm:px-8 py-8 sm:py-8 bg-main-red">
-    <h1 class="text-white text-4xl sm:text-7xl font-title uppercase tracking-wide">
-      Cycling Club Waregem
+  <header
+    class="flex flex-col sm:flex-row items-center justify-between px-6 py-8 bg-main-red text-center sm:text-left gap-6">
+    <h1 class="text-white text-4xl sm:text-6xl md:text-7xl font-title uppercase tracking-wide leading-tight">
+      Cycling Club <br class="sm:hidden"> Waregem
     </h1>
-
-    <img src="assets/img/logo-cycling-club-waregem.png" alt="Logo Cycling Club Waregem"
-      class="h-16 sm:h-32 md:h-40 object-contain" />
+    <img src="assets/img/logo-cycling-club-waregem.png" alt="Logo Cycling Club Waregem" width="160" height="160"
+      class="h-24 sm:h-32 md:h-40 object-contain" />
   </header>
   <main>
     <section id="over-ons" class="py-8 bg-off-white text-center px-4 sm:px-6 lg:px-8">
@@ -80,8 +80,8 @@
       </h2>
 
       <!-- Visible strip -->
-      <div class="overflow-hidden">
-        <div class="flex animate-marquee">
+      <div class="overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <div class="flex w-max gap-0 animate-marquee">
           <img src="assets/img/sponsors/sponsor-banner.webp" alt="All sponsors" loading="lazy"
             class="h-16 md:h-24 w-auto max-w-none shrink-0">
           <img src="assets/img/sponsors/sponsor-banner.webp" alt="All sponsors" loading="lazy"
@@ -157,10 +157,13 @@
       </div>
     </section>
   </main>
-  <footer class="flex content-center items-center gap-2 justify-center bg-alternative">
-    <p class="py-4 font-title text-xl text-center text-white"> &#169; Cycling Club Waregem</p>
+  <footer class="flex items-center gap-4 justify-center bg-alternative py-6">
+    <p class="font-title text-lg text-white">© 2026 Cycling Club Waregem</p>
+    <span class="text-gray-500">|</span>
     <a href="https://vwb.be" class="hover:scale-110 transition-transform" target="_blank" rel="noopener noreferrer">
-      <img src="assets/img/socials/logo-vwb.png" alt="Logo VWB" loading="lazy" class="h-8 w-8"></a>
+      <img src="assets/img/socials/logo-vwb.png" alt="Logo VWB" loading="lazy"
+        class="h-8 w-8 grayscale hover:grayscale-0 transition-all">
+    </a>
   </footer>
 </body>
 
