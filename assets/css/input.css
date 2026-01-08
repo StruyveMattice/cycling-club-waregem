@@ -1,5 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 @theme {
+  /* Colors */
+  --color-main-red: #cb2925;
+  --color-off-white: #e8e9ea;
+  --color-text: #1a1a1a;
 
+  /* Fonts */
+  --font-title: "Bebas Neue", sans-serif;
+  --font-body: "Roboto", sans-serif;
+}
+
+@layer utilities {
+  .font-title {
+    font-family: var(--font-title);
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
 }
