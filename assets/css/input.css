@@ -4,8 +4,10 @@
 @theme {
   /* Colors */
   --color-main-red: #cb2925;
+  --color-hover-red: #a8221e;
   --color-off-white: #e8e9ea;
   --color-text: #1a1a1a;
+  --color-alternative: #4b5563;
 
   /* Fonts */
   --font-title: "Bebas Neue", sans-serif;

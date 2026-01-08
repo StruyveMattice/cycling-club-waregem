@@ -27,34 +27,79 @@
   <link rel="manifest" href="/assets/img/favicon/site.webmanifest">
 </head>
 
-<body class="bg-white font-body">
-  <header class="flex items-center justify-between h-[400px] bg-main-red px-8">
-    <h1 class="text-white text-7xl font-title">
+<body class="bg-white font-body text-text">
+  <header class="flex items-center justify-between h-100 bg-main-red px-8">
+    <h1 class="text-white text-4xl md:text-6xl lg:text-7xl font-title">
       Cycling Club Waregem
     </h1>
 
-    <img src="/assets/img/logo-cycling-club-waregem.png" alt="Logo Cycling Club Waregem"
-      class="h-full object-contain" />
+    <img src="/assets/img/logo-cycling-club-waregem.png" alt="Logo" class="h-full object-contain" />
   </header>
   <main>
-    <section class="h-[400px] bg-off-white">
-      <h2>Over Ons</h2>
+    <section id="over-ons" class="py-16 bg-off-white text-center px-4 sm:px-6 lg:px-8">
+      <!-- Heading -->
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
+        Over Ons
+      </h2>
+
+      <!-- Content -->
+      <div class="max-w-3xl mx-auto text-left space-y-6">
+        <p class="text-base sm:text-lg">
+          Cycling Club Waregem, vroeger gekend als <strong>De Biesttrappers</strong>, is een recreatieve fietsclub
+          opgericht in 2000.
+          Sindsdien brengen we fietsers van alle niveaus samen om te genieten van groepsritten en onze passie voor
+          wielrennen te delen.
+        </p>
+
+        <p class="text-base sm:text-lg">
+          We staan bekend om onze jaarlijkse rally, de <strong>Lamett Classic</strong>, een hoogtepunt voor zowel leden
+          als gasten.
+          Daarnaast rijden we elke zondag in twee groepen: <strong>groep A</strong> voor de snellere rijders en
+          <strong>groep B</strong> voor wie het iets rustiger aan wil doen.
+        </p>
+
+        <p class="text-base sm:text-lg">
+          Onze missie is om een gezellige, inclusieve community te creëren waar iedereen zich welkom voelt, van
+          beginnende tot ervaren fietsers.
+          Iedereen is welkom om mee te rijden, plezier te maken en nieuwe mensen te leren kennen.
+        </p>
+
+        <ul class="list-disc list-inside text-base sm:text-lg space-y-2">
+          <li>Wekelijkse groepsritten op zondag in twee niveaugroepen</li>
+          <li>De jaarlijkse Lamett Classic rally</li>
+          <li>Sociale bijeenkomsten en events voor leden</li>
+        </ul>
+      </div>
     </section>
-    <section>
-      <h2>Sponsors</h2>
+    <section id="sponsors" class="py-16 bg-white text-center px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
+        Sponsors
+      </h2>
     </section>
-    <section>
-      <h2>Evenementen</h2>
+    <section id="evenementen" class="py-16 bg-off-white text-center px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
+        Evenementen
+      </h2>
     </section>
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Heb je interesse in onze club? Neem zeker contact met ons op via mail: contact@cyclingclubwaregem.be of via
-        onze sociale media
-      </p>
+    <section id="contact" class="py-16 bg-white text-center px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
+        Contact
+      </h2>
+      <div class="max-w-3xl mx-auto text-left space-y-6">
+        <p class="text-base sm:text-lg">
+          Heb je interesse in onze club? Neem zeker contact met ons op via mail: contact@cyclingclubwaregem.be of via
+          onze sociale media
+        </p>
+      </div>
     </section>
   </main>
-  <footer></footer>
+  <footer class="bg-alternative">
+    <p class="py-4 font-title text-xl text-center text-white"> &#169; Cycling Club Waregem</p>
+  </footer>
 </body>
 
 </html>
