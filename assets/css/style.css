@@ -182,6 +182,12 @@
   .h-\[400px\] {
     height: 400px;
   }
+  .h-auto {
+    height: auto;
+  }
+  .h-full {
+    height: 100%;
+  }
   .items-center {
     align-items: center;
   }
@@ -196,6 +202,9 @@
   }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .object-contain {
+    object-fit: contain;
   }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
