@@ -1,7 +1,7 @@
 {
   "name": "cycling-club-waregem",
-  "version": "1.0.0",
-  "description": "Website for the Cycling Club Waregem",
+  "version": "1.0.1",
+  "description": "Cycling Club Waregem official website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
