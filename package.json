@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/StruyveMattice/cycling-club-waregem#readme",
   "devDependencies": {
-    "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/cli": "^4.3.3",
     "html-validate": "^11.18.0",
     "tailwindcss": "^4.1.18"
   }
