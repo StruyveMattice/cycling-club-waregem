@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,9 +7,14 @@
   <title>Cycling Club Waregem (CCW) | Recreatieve Wielerclub West-Vlaanderen</title>
   <meta name="description"
     content="Gezellige recreatieve wielerclub in Waregem (vroeger De Biesttrappers). Wekelijkse groepsritten op zondag voor elk niveau en organisator van de Lamett Classic." />
+  <meta name="theme-color" content="#cb2925" />
 
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://cyclingclubwaregem.be/" />
+
+  <!-- Fonts are self-hosted; preload so text renders in the right font straight away -->
+  <link rel="preload" href="assets/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/roboto-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Open Graph Properties -->
@@ -18,12 +23,19 @@
     content="Recreatieve wielerclub in Waregem met wekelijkse ritten op zondag voor wielertoeristen van alle niveaus." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://cyclingclubwaregem.be/" />
-  <meta property="og:image" content="https://www.cyclingclubwaregem.be/assets/img/logo-cycling-club-waregem.png" />
+  <meta property="og:site_name" content="Cycling Club Waregem" />
+  <meta property="og:locale" content="nl_BE" />
+  <meta property="og:image" content="https://cyclingclubwaregem.be/assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Logo van Cycling Club Waregem" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
   <link rel="manifest" href="assets/img/favicon/site.webmanifest">
 
   <!-- Schema.org JSON-LD Structured Data for Local & Entity SEO -->
@@ -32,35 +44,26 @@
     "@context": "https://schema.org",
     "@type": "SportsClub",
     "name": "Cycling Club Waregem",
-    "alternateName": "De Biesttrappers",
+    "alternateName": ["CCW", "De Biesttrappers"],
     "description": "Recreatieve wielerclub en wielertoeristenvereniging opgericht in 2000 in Waregem, West-Vlaanderen.",
+    "foundingDate": "2000",
+    "sport": "Wielrennen",
     "url": "https://cyclingclubwaregem.be/",
-    "logo": "https://www.cyclingclubwaregem.be/assets/img/logo-cycling-club-waregem.png",
+    "logo": "https://cyclingclubwaregem.be/assets/img/logo-cycling-club-waregem.png",
+    "image": "https://cyclingclubwaregem.be/assets/img/og-image.jpg",
+    "email": "info@cyclingclubwaregem.be",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Waregem",
       "addressRegion": "West-Vlaanderen",
       "addressCountry": "BE"
     },
-    "knowsAbout": ["Wielrennen", "Wielertoerisme", "Groepsritten"],
-    "event": {
-      "@type": "Event",
-      "name": "Lamett Classic 2026",
-      "startDate": "2026-07-04",
-      "endDate": "2026-07-05",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "location": {
-        "@type": "Place",
-        "name": "Waregem",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Waregem",
-          "addressCountry": "BE"
-        }
-      },
-      "url": "https://lamettclassic.be"
-    }
+    "memberOf": {
+      "@type": "Organization",
+      "name": "Vlaamse Wielrijdersbond (VWB)",
+      "url": "https://vwb.be"
+    },
+    "knowsAbout": ["Wielrennen", "Wielertoerisme", "Groepsritten"]
   }
   </script>
 </head>
@@ -71,8 +74,8 @@
     <h1 class="text-white text-4xl sm:text-6xl md:text-7xl font-title uppercase tracking-wide leading-tight">
       Cycling Club <br class="sm:hidden"> Waregem
     </h1>
-    <img src="assets/img/logo-cycling-club-waregem.png" alt="Officieel clublogo van Cycling Club Waregem" width="160"
-      height="160" class="h-24 sm:h-32 md:h-40 object-contain" />
+    <img src="assets/img/logo-cycling-club-waregem.webp" alt="Officieel clublogo van Cycling Club Waregem" width="160"
+      height="160" fetchpriority="high" class="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 object-contain" />
   </header>
   <main>
     <section id="over-ons" class="py-8 bg-off-white text-center px-4 sm:px-6 lg:px-8">
@@ -118,21 +121,23 @@
         Sponsors
       </h2>
 
-      <!-- Visible strip -->
-      <div class="overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <!-- Visible strip (decorative; the list below is what screen readers and search engines read).
+           With reduced motion enabled the strip stops moving and becomes horizontally scrollable. -->
+      <div aria-hidden="true"
+        class="overflow-hidden motion-reduce:overflow-x-auto mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] motion-reduce:mask-none">
         <div class="flex w-max gap-0 animate-marquee">
-          <img src="assets/img/sponsors/sponsor-banner.webp" alt="Overzicht van sponsors van Cycling Club Waregem"
-            loading="lazy" class="h-16 md:h-24 w-auto max-w-none shrink-0">
-          <img src="assets/img/sponsors/sponsor-banner.webp" alt="Overzicht van lokale sponsors van de wielerclub"
-            loading="lazy" class="h-16 md:h-24 w-auto max-w-none shrink-0">
+          <img src="assets/img/sponsors/sponsor-banner.webp" alt="" width="3573" height="192" loading="lazy"
+            class="h-16 md:h-24 w-auto max-w-none shrink-0">
+          <img src="assets/img/sponsors/sponsor-banner.webp" alt="" width="3573" height="192" loading="lazy"
+            class="h-16 md:h-24 w-auto max-w-none shrink-0 motion-reduce:hidden">
         </div>
       </div>
 
       <!-- Hidden list for screen readers & SEO -->
       <ul class="sr-only">
         <li>AD Technics</li>
-        <li>Maatwerk & Interieur Alain Dewaele</li>
-        <li>Belfius Waregem & Vlaamse Ardennen</li>
+        <li>Maatwerk &amp; Interieur Alain Dewaele</li>
+        <li>Belfius Waregem &amp; Vlaamse Ardennen</li>
         <li>Coiffure Stefanie</li>
         <li>Electro Debeerst</li>
         <li>Eetcafe De Karekiet</li>
@@ -151,16 +156,16 @@
       </h2>
       <div class="max-w-xl mx-auto">
         <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
-          <img src="assets/img/events/logo-lamett-classic.webp"
-            alt="Aankondiging banner Lamett Classic 2026 wielertoeristen tocht" loading="lazy"
-            class="w-full h-52 object-cover">
+          <img src="assets/img/events/logo-lamett-classic.webp" alt="Logo van de Lamett Classic" width="1152"
+            height="815" loading="lazy" class="w-full h-52 object-cover">
           <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-xl font-title mb-2">Lamett Classic 2026</h3>
+            <h3 class="text-xl font-title mb-2">Lamett Classic 2027</h3>
             <p class="text-text mb-4 flex-1">
-              Op 4 & 5 juli 2026 trekken we opnieuw de baan op voor een weekend vol fietsplezier tijdens de Lamett
-              Classic, de semi-klassieker van Cycling Club Waregem.
+              Na een geslaagde editie in juli 2026 zijn we volop bezig met de voorbereidingen voor de volgende Lamett
+              Classic, de semi-klassieker van Cycling Club Waregem. De datum voor 2027 volgt binnenkort: volg ons op
+              sociale media om als eerste op de hoogte te zijn.
             </p>
-            <a href="https://lamettclassic.be"
+            <a href="https://www.lamettclassic.be/"
               class="mt-auto inline-block bg-main-red text-white text-center py-2 px-4 rounded-lg hover:bg-hover-red transition-colors">
               Meer info
             </a>
@@ -180,7 +185,7 @@
       </p>
 
       <p class="text-lg font-semibold mb-10">
-        <a href="mailto:contact@cyclingclubwaregem.be" class="underline hover:text-main-red transition-colors">
+        <a href="mailto:info@cyclingclubwaregem.be" class="underline hover:text-main-red transition-colors">
           info@cyclingclubwaregem.be
         </a>
       </p>
@@ -189,14 +194,14 @@
       <div class="flex justify-center gap-8">
         <a href="https://www.facebook.com/lamettclassic/" target="_blank" rel="noopener noreferrer"
           class="hover:scale-110 transition-transform">
-          <img src="assets/img/socials/facebook.png" alt="Volg Cycling Club Waregem op Facebook" loading="lazy"
-            class="h-8 w-8">
+          <img src="assets/img/socials/facebook.webp" alt="Volg ons op Facebook" width="32" height="32"
+            loading="lazy" class="h-8 w-8">
         </a>
 
         <a href="https://www.instagram.com/_lamettclassic/" target="_blank" rel="noopener noreferrer"
           class="hover:scale-110 transition-transform">
-          <img src="assets/img/socials/instagram.png" alt="Volg Cycling Club Waregem op Instagram" loading="lazy"
-            class="h-8 w-8">
+          <img src="assets/img/socials/instagram.webp" alt="Volg ons op Instagram" width="32" height="32"
+            loading="lazy" class="h-8 w-8">
         </a>
       </div>
     </section>
@@ -204,10 +209,10 @@
 
   <footer class="flex items-center gap-4 justify-center bg-alternative py-6">
     <p class="font-title text-lg text-white">© 2026 Cycling Club Waregem (CCW)</p>
-    <span class="text-gray-500">|</span>
+    <span class="text-gray-300" aria-hidden="true">|</span>
     <a href="https://vwb.be" class="hover:scale-110 transition-transform" target="_blank" rel="noopener noreferrer">
-      <img src="assets/img/socials/logo-vwb.png" alt="Lid van de Vlaamse Wielrijdersbond (VWB)" loading="lazy"
-        class="h-8 w-8 grayscale hover:grayscale-0 transition-all">
+      <img src="assets/img/socials/logo-vwb.webp" alt="Lid van de Vlaamse Wielrijdersbond (VWB)" width="28"
+        height="32" loading="lazy" class="h-8 w-auto grayscale hover:grayscale-0 transition-all">
     </a>
   </footer>
 </body>

@@ -1,5 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import "tailwindcss";
+/* Only scan the page itself for class names, not READMEs, scripts or workflow files */
+@import "tailwindcss" source(none);
+@source "../../index.html";
+
+/* Self-hosted fonts (latin subset) — no requests to Google, so no visitor IPs leave the site */
+@font-face {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/bebas-neue-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/roboto-latin-variable.woff2") format("woff2");
+}
 
 @theme {
   /* Colors */
@@ -31,6 +49,12 @@
   }
 
   .animate-marquee {
-    animation: marquee 40s linear infinite; 
+    animation: marquee 40s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
   }
 }

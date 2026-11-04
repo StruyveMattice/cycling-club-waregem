@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+  # Reused by the deploy workflow so nothing reaches the server without passing these checks
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Lint & checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Committed CSS is up to date
+        run: |
+          npm run build
+          if ! git diff --quiet -- assets/css/style.css; then
+            echo "::error file=assets/css/style.css::style.css is out of date. Run 'npm run build' and commit the result."
+            exit 1
+          fi
+
+      - name: Validate HTML
+        run: npm run lint
+
+      - name: Check local files, JSON-LD and manifest
+        run: npm run check
