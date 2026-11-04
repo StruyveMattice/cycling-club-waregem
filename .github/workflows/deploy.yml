@@ -1,0 +1,67 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  # Manual "Run workflow" button in the Actions tab
+  workflow_dispatch:
+
+# Never run two uploads at the same time; a newer push waits for the running one
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    name: Upload to OVH
+    needs: checks
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://cyclingclubwaregem.be
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      # Builds the CSS and copies only the public files into dist/
+      - run: npm run dist
+
+      # Uploads dist/ over SFTP (encrypted). OVH shared hosting does not offer FTPS,
+      # and plain FTP would send the password unencrypted.
+      - name: Upload via SFTP
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_KNOWN_HOSTS: ${{ secrets.SFTP_KNOWN_HOSTS }}
+          REMOTE_DIR: ${{ vars.SFTP_REMOTE_DIR || 'www' }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+          # Only connect to the real OVH server: its host key must match the stored one
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SFTP_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          lftp -u "$SFTP_USERNAME" --env-password "sftp://$SFTP_HOST" -e "
+            set net:max-retries 2;
+            set net:timeout 30;
+            set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=yes';
+            mirror --reverse --verbose --parallel=4 dist/ $REMOTE_DIR;
+            bye"
+
+      - name: Smoke test live site
+        run: |
+          sleep 5
+          curl --fail --silent --show-error --output /dev/null https://cyclingclubwaregem.be/
+          code=$(curl --silent --output /dev/null --write-out '%{http_code}' https://www.cyclingclubwaregem.be/)
+          [ "$code" = "301" ] || { echo "::warning::www did not redirect (got $code)"; }
