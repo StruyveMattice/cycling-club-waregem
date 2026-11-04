@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cycling Club Waregem (CCW) | Recreatieve Wielerclub West-Vlaanderen</title>
   <meta name="description"
-    content="Gezellige recreatieve wielerclub in Waregem (vroeger De Biesttrappers). Wekelijkse groepsritten op zondag voor elk niveau en organisator van de Lamett Classic." />
+    content="Recreatieve wielerclub in Waregem (vroeger De Biesttrappers). Elke zondag groepsritten aan ± 24 of ± 28 km/u: rij 3 keer gratis mee! Organisator van de Lamett Classic." />
   <meta name="theme-color" content="#cb2925" />
 
   <meta name="robots" content="index, follow" />
@@ -63,7 +63,34 @@
       "name": "Vlaamse Wielrijdersbond (VWB)",
       "url": "https://vwb.be"
     },
-    "knowsAbout": ["Wielrennen", "Wielertoerisme", "Groepsritten"]
+    "knowsAbout": ["Wielrennen", "Wielertoerisme", "Groepsritten"],
+    "sameAs": ["https://www.strava.com/clubs/cyclingclubwaregem"],
+    "event": {
+      "@type": "Event",
+      "name": "Lamett Classic 2027",
+      "description": "Jaarlijkse toertocht van Cycling Club Waregem, het eerste weekend van juli.",
+      "startDate": "2027-07-03",
+      "endDate": "2027-07-04",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "image": "https://cyclingclubwaregem.be/assets/img/events/logo-lamett-classic.webp",
+      "location": {
+        "@type": "Place",
+        "name": "Waregem",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Waregem",
+          "addressRegion": "West-Vlaanderen",
+          "addressCountry": "BE"
+        }
+      },
+      "organizer": {
+        "@type": "SportsClub",
+        "name": "Cycling Club Waregem",
+        "url": "https://cyclingclubwaregem.be/"
+      },
+      "url": "https://www.lamettclassic.be/"
+    }
   }
   </script>
 </head>
@@ -71,9 +98,16 @@
 <body class="bg-white font-body text-text">
   <header
     class="flex flex-col sm:flex-row items-center justify-between px-6 py-8 bg-main-red text-center sm:text-left gap-6">
-    <h1 class="text-white text-4xl sm:text-6xl md:text-7xl font-title uppercase tracking-wide leading-tight">
-      Cycling Club <br class="sm:hidden"> Waregem
-    </h1>
+    <div class="flex flex-col items-center sm:items-start gap-4">
+      <h1 class="text-white text-4xl sm:text-6xl md:text-7xl font-title uppercase tracking-wide leading-tight">
+        Cycling Club <br class="sm:hidden"> Waregem
+      </h1>
+      <p class="text-white/90 text-base sm:text-lg">Recreatieve wielerclub sinds 2000 · Elke zondag samen op de baan</p>
+      <a href="#rij-eens-mee"
+        class="inline-block bg-white text-main-red font-title text-xl tracking-wide uppercase py-2 px-6 rounded-lg shadow hover:bg-off-white transition-colors">
+        Rij eens mee
+      </a>
+    </div>
     <img src="assets/img/logo-cycling-club-waregem.webp" alt="Officieel clublogo van Cycling Club Waregem" width="160"
       height="160" fetchpriority="high" class="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 object-contain" />
   </header>
@@ -109,7 +143,9 @@
 
         <ul class="list-disc list-inside text-base sm:text-lg space-y-2">
           <li>Wekelijkse groepsritten op zondag in twee niveaugroepen</li>
-          <li>De jaarlijkse Lamett Classic rally</li>
+          <li>Op zaterdag samen naar toertochten van andere clubs in de streek</li>
+          <li>De jaarlijkse Lamett Classic, het eerste weekend van juli</li>
+          <li>Elk jaar of om de twee jaar een fietsreis naar het buitenland</li>
           <li>Sociale bijeenkomsten en events voor leden</li>
         </ul>
       </div>
@@ -149,39 +185,183 @@
       </ul>
     </section>
 
-    <section id="evenementen" class="py-8 bg-off-white text-center px-4 sm:px-6 lg:px-8">
+    <section id="rij-eens-mee" class="py-8 bg-off-white text-center px-4 sm:px-6 lg:px-8 scroll-mt-4">
       <h2
         class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
-        Evenementen
+        Rij eens mee
       </h2>
-      <div class="max-w-xl mx-auto">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
+
+      <div class="max-w-3xl mx-auto">
+        <p class="text-base sm:text-lg mb-8">
+          Elke <strong>zondagvoormiddag</strong> vertrekken we in twee groepen vanuit Waregem.
+          Kies het tempo dat bij je past: beide groepen zijn <strong>rond 11u terug</strong>.
+        </p>
+
+        <!-- Ride groups -->
+        <div class="grid sm:grid-cols-2 gap-6 mb-4">
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="bg-main-red text-white py-3">
+              <h3 class="font-title text-3xl tracking-wide">Groep A</h3>
+            </div>
+            <dl class="p-6 space-y-4">
+              <div>
+                <dt class="text-sm uppercase tracking-wide text-alternative">Vertrek</dt>
+                <dd class="font-title text-5xl">8u00</dd>
+              </div>
+              <div>
+                <dt class="text-sm uppercase tracking-wide text-alternative">Gemiddelde snelheid</dt>
+                <dd class="font-title text-4xl">± 28 km/u</dd>
+              </div>
+              <div>
+                <dt class="sr-only">Voor wie</dt>
+                <dd>Voor wie graag wat sneller rijdt</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="bg-alternative text-white py-3">
+              <h3 class="font-title text-3xl tracking-wide">Groep B</h3>
+            </div>
+            <dl class="p-6 space-y-4">
+              <div>
+                <dt class="text-sm uppercase tracking-wide text-alternative">Vertrek</dt>
+                <dd class="font-title text-5xl">8u30</dd>
+              </div>
+              <div>
+                <dt class="text-sm uppercase tracking-wide text-alternative">Gemiddelde snelheid</dt>
+                <dd class="font-title text-4xl">± 24 km/u</dd>
+              </div>
+              <div>
+                <dt class="sr-only">Voor wie</dt>
+                <dd>Voor wie het iets rustiger aan wil doen</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <p class="text-sm text-alternative mb-10">
+          De afstand hangt af van het weer en het aantal hoogtemeters, maar we mikken altijd op rond 11u terug.
+        </p>
+
+        <!-- How it works -->
+        <h3 class="font-title text-3xl tracking-wide mb-6">Zo werkt het</h3>
+        <ol class="grid sm:grid-cols-3 gap-6 text-left mb-10">
+          <li class="flex sm:flex-col gap-4 sm:gap-2">
+            <span aria-hidden="true"
+              class="shrink-0 w-10 h-10 rounded-full bg-main-red text-white font-title text-2xl flex items-center justify-center">1</span>
+            <div>
+              <strong class="block">Vraag toegang tot onze WhatsApp-groep</strong>
+              Zo blijf je op de hoogte van de ritten.
+            </div>
+          </li>
+          <li class="flex sm:flex-col gap-4 sm:gap-2">
+            <span aria-hidden="true"
+              class="shrink-0 w-10 h-10 rounded-full bg-main-red text-white font-title text-2xl flex items-center justify-center">2</span>
+            <div>
+              <strong class="block">Rij 3 keer gratis mee</strong>
+              Zo kan je rustig ontdekken of de club iets voor jou is.
+            </div>
+          </li>
+          <li class="flex sm:flex-col gap-4 sm:gap-2">
+            <span aria-hidden="true"
+              class="shrink-0 w-10 h-10 rounded-full bg-main-red text-white font-title text-2xl flex items-center justify-center">3</span>
+            <div>
+              <strong class="block">Goed bevallen? Word lid!</strong>
+              Dan rij je voortaan mee als volwaardig lid van de ploeg.
+            </div>
+          </li>
+        </ol>
+
+        <a href="https://chat.whatsapp.com/IoQvHlGQuPY2fAiVN9v9Fb" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-main-red text-white font-title text-2xl tracking-wide uppercase py-3 px-8 rounded-lg shadow-md hover:bg-hover-red transition-colors">
+          <svg aria-hidden="true" class="w-7 h-7 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg>
+          Ik rij graag eens mee
+        </a>
+        <p class="text-sm text-alternative mt-4">
+          Je vraagt toegang tot onze WhatsApp-groep. Liever eerst iets vragen? Mail naar
+          <a href="mailto:info@cyclingclubwaregem.be" class="underline hover:text-main-red">info@cyclingclubwaregem.be</a>.
+        </p>
+
+        <!-- Saturdays -->
+        <div class="mt-10 bg-white rounded-xl shadow-md p-6 text-left border-l-4 border-main-red">
+          <h3 class="font-title text-2xl tracking-wide mb-2">Ook op zaterdag</h3>
+          <p>
+            De officiële clubritten zijn op zondag, maar op zaterdag trekken veel leden ook in clubverband naar
+            toertochten van andere clubs in de streek. Ook dan rijden we als één ploeg.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="activiteiten" class="py-8 bg-white text-center px-4 sm:px-6 lg:px-8">
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
+        Activiteiten
+      </h2>
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 text-left">
+        <!-- Lamett Classic -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
           <img src="assets/img/events/logo-lamett-classic.webp" alt="Logo van de Lamett Classic" width="1152"
             height="815" loading="lazy" class="w-full h-52 object-cover">
           <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-xl font-title mb-2">Lamett Classic 2027</h3>
-            <p class="text-text mb-4 flex-1">
-              Na een geslaagde editie in juli 2026 zijn we volop bezig met de voorbereidingen voor de volgende Lamett
-              Classic, de semi-klassieker van Cycling Club Waregem. De datum voor 2027 volgt binnenkort: volg ons op
-              sociale media om als eerste op de hoogte te zijn.
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <h3 class="text-2xl font-title tracking-wide">Lamett Classic 2027</h3>
+              <span id="lamett-countdown" hidden
+                class="bg-main-red text-white text-sm font-semibold py-1 px-3 rounded-full"></span>
+            </div>
+            <p class="font-semibold mb-2">
+              <time datetime="2027-07-03">Zaterdag 3</time> &amp; <time datetime="2027-07-04">zondag 4 juli 2027</time>
+            </p>
+            <p class="mb-4 flex-1">
+              Ook in 2027 trekken we het eerste weekend van juli de baan op voor de Lamett Classic, de semi-klassieker
+              van Cycling Club Waregem. Zet het alvast in je agenda!
             </p>
             <a href="https://www.lamettclassic.be/"
               class="mt-auto inline-block bg-main-red text-white text-center py-2 px-4 rounded-lg hover:bg-hover-red transition-colors">
               Meer info
             </a>
           </div>
-        </div>
+        </article>
+
+        <!-- Trips abroad -->
+        <article class="bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+          <div class="h-52 bg-main-red flex items-center justify-center" aria-hidden="true">
+            <svg class="w-48 h-auto text-white" viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linejoin="round" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 56 L40 12 L56 32 L72 4 L116 56 Z" />
+              <path d="M64 18 L72 4 L80 18 L76 15 L72 19 L68 15 Z" fill="currentColor" />
+              <path d="M30 56 C46 44 58 50 66 40 C74 30 88 34 96 24" stroke-dasharray="3 5" />
+            </svg>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="text-2xl font-title tracking-wide mb-2">Fietsreis naar het buitenland</h3>
+            <p class="mb-4">
+              Elk jaar of om de twee jaar trekken we met de club op fietsreis naar het buitenland. Samen afzien op de
+              col, samen genieten achteraf.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex gap-3"><span class="font-title text-xl text-main-red">2026</span> Mojácar (Spanje), met
+                Golazo</li>
+              <li class="flex gap-3"><span class="font-title text-xl text-main-red">2024</span> Mont Ventoux
+                (Frankrijk)</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="contact" class="py-8 bg-white text-center px-4 sm:px-6 lg:px-8">
+    <section id="contact" class="py-8 bg-off-white text-center px-4 sm:px-6 lg:px-8">
       <h2
         class="text-3xl sm:text-4xl md:text-5xl font-title inline-block border-b-4 border-main-red pb-1 mb-8 uppercase tracking-wide">
         Contact
       </h2>
       <p class="max-w-xl mx-auto text-lg mb-8">
-        Zin om eens mee te rijden met Cycling Club Waregem? Iedereen is welkom!
-        Neem gerust contact met ons op via e-mail of via onze sociale media.
+        Nog vragen? Neem gerust contact met ons op via e-mail of volg ons op sociale media.
+        Wil je meteen eens meerijden? <a href="#rij-eens-mee" class="underline hover:text-main-red">Zo werkt het</a>.
       </p>
 
       <p class="text-lg font-semibold mb-10">
@@ -190,20 +370,39 @@
         </a>
       </p>
 
-      <!-- Social icons -->
-      <div class="flex justify-center gap-8">
-        <a href="https://www.facebook.com/lamettclassic/" target="_blank" rel="noopener noreferrer"
-          class="hover:scale-110 transition-transform">
-          <img src="assets/img/socials/facebook.webp" alt="Volg ons op Facebook" width="32" height="32"
-            loading="lazy" class="h-8 w-8">
-        </a>
-
-        <a href="https://www.instagram.com/_lamettclassic/" target="_blank" rel="noopener noreferrer"
-          class="hover:scale-110 transition-transform">
-          <img src="assets/img/socials/instagram.webp" alt="Volg ons op Instagram" width="32" height="32"
-            loading="lazy" class="h-8 w-8">
-        </a>
-      </div>
+      <!-- Social links -->
+      <ul class="flex justify-center gap-10">
+        <li>
+          <a href="https://www.facebook.com/lamettclassic/" target="_blank" rel="noopener noreferrer"
+            class="group flex flex-col items-center gap-2">
+            <img src="assets/img/socials/facebook.webp" alt="" width="32" height="32" loading="lazy"
+              class="h-8 w-8 group-hover:scale-110 transition-transform">
+            <span class="text-sm">Facebook</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/_lamettclassic/" target="_blank" rel="noopener noreferrer"
+            class="group flex flex-col items-center gap-2">
+            <img src="assets/img/socials/instagram.webp" alt="" width="32" height="32" loading="lazy"
+              class="h-8 w-8 group-hover:scale-110 transition-transform">
+            <span class="text-sm">Instagram</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.strava.com/clubs/cyclingclubwaregem" target="_blank" rel="noopener noreferrer"
+            class="group flex flex-col items-center gap-2">
+            <svg aria-hidden="true" class="h-8 w-8 fill-[#fc4c02] group-hover:scale-110 transition-transform"
+              viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169" />
+            </svg>
+            <span class="text-sm">Strava <span class="text-alternative">(leden)</span></span>
+          </a>
+        </li>
+      </ul>
+      <p class="text-sm text-alternative mt-6">
+        Op Facebook en Instagram volg je ons via de pagina's van de Lamett Classic.
+      </p>
     </section>
   </main>
 
@@ -215,6 +414,20 @@
         height="32" loading="lazy" class="h-8 w-auto grayscale hover:grayscale-0 transition-all">
     </a>
   </footer>
+
+  <script>
+    // Countdown badge for the Lamett Classic; stays hidden once the event is over
+    (() => {
+      const badge = document.getElementById("lamett-countdown");
+      const start = new Date("2027-07-03T00:00:00+02:00");
+      const days = Math.ceil((start - Date.now()) / 86400000);
+      if (days > 1) badge.textContent = `Nog ${days} dagen`;
+      else if (days === 1) badge.textContent = "Morgen!";
+      else if (days >= -1) badge.textContent = "Dit weekend!";
+      else return;
+      badge.hidden = false;
+    })();
+  </script>
 </body>
 
 </html>
