@@ -68,7 +68,7 @@
     "event": {
       "@type": "Event",
       "name": "Lamett Classic 2027",
-      "description": "Jaarlijkse toertocht van Cycling Club Waregem, het eerste weekend van juli.",
+      "description": "Jaarlijkse toertocht van Cycling Club Waregem.",
       "startDate": "2027-07-03",
       "endDate": "2027-07-04",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -120,35 +120,40 @@
       </h2>
 
       <!-- Content -->
-      <div class="max-w-3xl mx-auto text-left space-y-6">
-        <p class="text-base sm:text-lg">
-          Cycling Club Waregem (CCW), vroeger gekend als <strong>De Biesttrappers</strong>, is een recreatieve fietsclub
-          opgericht in 2000.
-          Sindsdien brengen we fietsers van alle niveaus samen om te genieten van groepsritten en onze passie voor
-          wielrennen te delen.
+      <div class="max-w-3xl mx-auto text-left space-y-6 text-base sm:text-lg">
+        <p>
+          Cycling Club Waregem (CCW) is een recreatieve wielerclub uit Waregem. We werden in 2000 opgericht als
+          <strong>De Biesttrappers</strong> en brengen sindsdien fietsers van alle niveaus samen.
         </p>
 
-        <p class="text-base sm:text-lg">
-          We staan bekend om onze jaarlijkse rally, de <strong>Lamett Classic</strong>, een hoogtepunt voor zowel leden
-          als gasten.
-          Daarnaast rijden we elke zondag in twee aparte groepen: <strong>groep A</strong> voor de snellere rijders en
-          <strong>groep B</strong> voor wie het iets rustiger aan wil doen.
+        <p>
+          Bij ons draait het niet om uitslagen, maar om samen fietsen. Elke zondag trekken we in groep de baan op,
+          en na de rit drinken we samen iets in ons clublokaal, <strong>Eetcafé De Karekiet</strong>.
+          Op zaterdag rijden veel leden in clubverband toertochten van andere clubs in de streek, en met de club
+          trekken we ook op fietsreis naar het buitenland.
         </p>
 
-        <p class="text-base sm:text-lg">
-          Onze missie is om een gezellige, inclusieve community te creëren waar iedereen zich welkom voelt, van
-          beginnende tot ervaren fietsers.
-          Iedereen is welkom om mee te rijden, plezier te maken en nieuwe mensen te leren kennen.
+        <p>
+          Elk jaar organiseren we bovendien onze eigen toertocht: de <strong>Lamett Classic</strong>.
+          Nieuwe gezichten zijn altijd welkom, of je nu pas begint of al jaren rijdt.
         </p>
-
-        <ul class="list-disc list-inside text-base sm:text-lg space-y-2">
-          <li>Wekelijkse groepsritten op zondag in twee niveaugroepen</li>
-          <li>Op zaterdag samen naar toertochten van andere clubs in de streek</li>
-          <li>De jaarlijkse Lamett Classic, het eerste weekend van juli</li>
-          <li>Elk jaar of om de twee jaar een fietsreis naar het buitenland</li>
-          <li>Sociale bijeenkomsten en events voor leden</li>
-        </ul>
       </div>
+
+      <!-- Key figures -->
+      <dl class="max-w-3xl mx-auto grid grid-cols-3 gap-4 mt-10">
+        <div class="bg-white rounded-xl shadow-md py-4 px-2 flex flex-col-reverse">
+          <dt class="text-sm sm:text-base">opgericht</dt>
+          <dd class="font-title text-4xl sm:text-5xl text-main-red">2000</dd>
+        </div>
+        <div class="bg-white rounded-xl shadow-md py-4 px-2 flex flex-col-reverse">
+          <dt class="text-sm sm:text-base">groepen elke zondag</dt>
+          <dd class="font-title text-4xl sm:text-5xl text-main-red">2</dd>
+        </div>
+        <div class="bg-white rounded-xl shadow-md py-4 px-2 flex flex-col-reverse">
+          <dt class="text-sm sm:text-base">gratis meerijden</dt>
+          <dd class="font-title text-4xl sm:text-5xl text-main-red">3×</dd>
+        </div>
+      </dl>
     </section>
 
     <section id="sponsors" class="py-8 bg-white text-center px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -157,32 +162,103 @@
         Sponsors
       </h2>
 
-      <!-- Visible strip (decorative; the list below is what screen readers and search engines read).
-           With reduced motion enabled the strip stops moving and becomes horizontally scrollable. -->
-      <div aria-hidden="true"
-        class="overflow-hidden motion-reduce:overflow-x-auto mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] motion-reduce:mask-none">
-        <div class="flex w-max gap-0 animate-marquee">
-          <img src="assets/img/sponsors/sponsor-banner.webp" alt="" width="3573" height="192" loading="lazy"
-            class="h-16 md:h-24 w-auto max-w-none shrink-0">
-          <img src="assets/img/sponsors/sponsor-banner.webp" alt="" width="3573" height="192" loading="lazy"
-            class="h-16 md:h-24 w-auto max-w-none shrink-0 motion-reduce:hidden">
+      <!-- Logos scroll by moving the track exactly half its width: both lists are identical and the spacing
+           sits inside each item (px-6), so the loop is seamless. Hover or keyboard focus pauses it.
+           With reduced motion enabled the logos stand still and wrap onto several lines. -->
+      <div
+        class="overflow-hidden mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] motion-reduce:mask-none">
+        <div
+          class="flex w-max animate-marquee hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] motion-reduce:w-auto">
+          <ul class="flex shrink-0 items-center motion-reduce:shrink motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:gap-y-6">
+          <li class="shrink-0 px-6">
+            <a href="https://www.ad-technics.be/" target="_blank" rel="noopener noreferrer"
+              class="block rounded hover:scale-105 focus-visible:outline-2 focus-visible:outline-main-red transition-transform">
+              <img src="assets/img/sponsors/ad-technics.webp" alt="AD Technics" width="163" height="192" class="h-16 md:h-24 w-auto max-w-none">
+            </a>
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/alain-dewaele.webp" alt="Maatwerk &amp; Interieur Alain Dewaele" width="198" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <a href="https://www.belfius.be/webapps/nl/agentschappen-zoeker/kantoor/openingsuren-waregem" target="_blank" rel="noopener noreferrer"
+              class="block rounded hover:scale-105 focus-visible:outline-2 focus-visible:outline-main-red transition-transform">
+              <img src="assets/img/sponsors/belfius-waregem-vlaamse-ardennen.webp" alt="Belfius Waregem &amp; Vlaamse Ardennen" width="391" height="192" class="h-16 md:h-24 w-auto max-w-none">
+            </a>
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/velo-fane.webp" alt="Velo Fane" width="227" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/transport-vansteenkiste.webp" alt="Transport Vansteenkiste" width="846" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/peerdeke.webp" alt="Taverne 't Peerdeke" width="136" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <a href="https://www.matcars.be/" target="_blank" rel="noopener noreferrer"
+              class="block rounded hover:scale-105 focus-visible:outline-2 focus-visible:outline-main-red transition-transform">
+              <img src="assets/img/sponsors/matcars.webp" alt="Matcars" width="229" height="192" class="h-16 md:h-24 w-auto max-w-none">
+            </a>
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/martroye-technics.webp" alt="Martroye Technics" width="661" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/karekiet.webp" alt="Eetcafé De Karekiet" width="404" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/electro-debeerst.webp" alt="Electro Debeerst" width="270" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/coiffure-stefanie.webp" alt="Coiffure Stefanie" width="297" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          </ul>
+          <ul class="flex shrink-0 items-center motion-reduce:hidden" aria-hidden="true">
+          <li class="shrink-0 px-6">
+            <a href="https://www.ad-technics.be/" target="_blank" rel="noopener noreferrer" tabindex="-1"
+              class="block rounded hover:scale-105 focus-visible:outline-2 focus-visible:outline-main-red transition-transform">
+              <img src="assets/img/sponsors/ad-technics.webp" alt="" width="163" height="192" class="h-16 md:h-24 w-auto max-w-none">
+            </a>
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/alain-dewaele.webp" alt="" width="198" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <a href="https://www.belfius.be/webapps/nl/agentschappen-zoeker/kantoor/openingsuren-waregem" target="_blank" rel="noopener noreferrer" tabindex="-1"
+              class="block rounded hover:scale-105 focus-visible:outline-2 focus-visible:outline-main-red transition-transform">
+              <img src="assets/img/sponsors/belfius-waregem-vlaamse-ardennen.webp" alt="" width="391" height="192" class="h-16 md:h-24 w-auto max-w-none">
+            </a>
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/velo-fane.webp" alt="" width="227" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/transport-vansteenkiste.webp" alt="" width="846" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/peerdeke.webp" alt="" width="136" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <a href="https://www.matcars.be/" target="_blank" rel="noopener noreferrer" tabindex="-1"
+              class="block rounded hover:scale-105 focus-visible:outline-2 focus-visible:outline-main-red transition-transform">
+              <img src="assets/img/sponsors/matcars.webp" alt="" width="229" height="192" class="h-16 md:h-24 w-auto max-w-none">
+            </a>
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/martroye-technics.webp" alt="" width="661" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/karekiet.webp" alt="" width="404" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/electro-debeerst.webp" alt="" width="270" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          <li class="shrink-0 px-6">
+            <img src="assets/img/sponsors/coiffure-stefanie.webp" alt="" width="297" height="192" class="h-16 md:h-24 w-auto max-w-none">
+          </li>
+          </ul>
         </div>
       </div>
-
-      <!-- Hidden list for screen readers & SEO -->
-      <ul class="sr-only">
-        <li>AD Technics</li>
-        <li>Maatwerk &amp; Interieur Alain Dewaele</li>
-        <li>Belfius Waregem &amp; Vlaamse Ardennen</li>
-        <li>Coiffure Stefanie</li>
-        <li>Electro Debeerst</li>
-        <li>Eetcafe De Karekiet</li>
-        <li>Martroye Technics</li>
-        <li>Matcars</li>
-        <li>Taverne 't Peerdeke</li>
-        <li>Transport Vansteenkiste</li>
-        <li>Velo Fane</li>
-      </ul>
     </section>
 
     <section id="rij-eens-mee" class="py-8 bg-off-white text-center px-4 sm:px-6 lg:px-8 scroll-mt-4">
@@ -193,7 +269,7 @@
 
       <div class="max-w-3xl mx-auto">
         <p class="text-base sm:text-lg mb-8">
-          Elke <strong>zondagvoormiddag</strong> vertrekken we in twee groepen vanuit Waregem.
+          Elke <strong>zondagvoormiddag</strong> vertrekken we in twee groepen aan ons clublokaal in Waregem.
           Kies het tempo dat bij je past: beide groepen zijn <strong>rond 11u terug</strong>.
         </p>
 
@@ -214,13 +290,13 @@
               </div>
               <div>
                 <dt class="sr-only">Voor wie</dt>
-                <dd>Voor wie graag wat sneller rijdt</dd>
+                <dd>Voor wie graag een stevig tempo rijdt</dd>
               </div>
             </dl>
           </div>
 
           <div class="bg-white rounded-xl shadow-md overflow-hidden">
-            <div class="bg-alternative text-white py-3">
+            <div class="bg-main-red text-white py-3">
               <h3 class="font-title text-3xl tracking-wide">Groep B</h3>
             </div>
             <dl class="p-6 space-y-4">
@@ -234,15 +310,37 @@
               </div>
               <div>
                 <dt class="sr-only">Voor wie</dt>
-                <dd>Voor wie het iets rustiger aan wil doen</dd>
+                <dd>Voor wie graag aan een vlot tempo rijdt</dd>
               </div>
             </dl>
           </div>
         </div>
 
-        <p class="text-sm text-alternative mb-10">
+        <p class="text-sm text-alternative mb-8">
           De afstand hangt af van het weer en het aantal hoogtemeters, maar we mikken altijd op rond 11u terug.
+          Twijfel je welke groep bij je past? Vraag het gerust in de WhatsApp-groep.
         </p>
+
+        <!-- Start location -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-10 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+          <svg aria-hidden="true" class="w-10 h-10 shrink-0 text-main-red" viewBox="0 0 24 24" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
+          </svg>
+          <div class="flex-1">
+            <h3 class="font-title text-2xl tracking-wide">Vertrek en aankomst: Eetcafé De Karekiet</h3>
+            <p>
+              <span class="whitespace-nowrap">Bessemstraat 20,</span> <span class="whitespace-nowrap">8790 Waregem</span>.
+              Ons clublokaal, waar we na de rit samen iets drinken.
+            </p>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Eetcaf%C3%A9+De+Karekiet%2C+Bessemstraat+20%2C+8790+Waregem"
+            target="_blank" rel="noopener noreferrer"
+            class="shrink-0 inline-block border-2 border-main-red text-main-red py-2 px-4 rounded-lg hover:bg-main-red hover:text-white transition-colors">
+            Toon op kaart
+          </a>
+        </div>
 
         <!-- How it works -->
         <h3 class="font-title text-3xl tracking-wide mb-6">Zo werkt het</h3>
@@ -317,8 +415,8 @@
               <time datetime="2027-07-03">Zaterdag 3</time> &amp; <time datetime="2027-07-04">zondag 4 juli 2027</time>
             </p>
             <p class="mb-4 flex-1">
-              Ook in 2027 trekken we het eerste weekend van juli de baan op voor de Lamett Classic, de semi-klassieker
-              van Cycling Club Waregem. Zet het alvast in je agenda!
+              Op 3 en 4 juli 2027 trekken we opnieuw de baan op voor de Lamett Classic, de semi-klassieker van
+              Cycling Club Waregem. Zet het alvast in je agenda!
             </p>
             <a href="https://www.lamettclassic.be/"
               class="mt-auto inline-block bg-main-red text-white text-center py-2 px-4 rounded-lg hover:bg-hover-red transition-colors">
@@ -338,10 +436,10 @@
             </svg>
           </div>
           <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-2xl font-title tracking-wide mb-2">Fietsreis naar het buitenland</h3>
+            <h3 class="text-2xl font-title tracking-wide mb-2">Fietsreizen naar het buitenland</h3>
             <p class="mb-4">
-              Elk jaar of om de twee jaar trekken we met de club op fietsreis naar het buitenland. Samen afzien op de
-              col, samen genieten achteraf.
+              Met de club trekken we ook op fietsreis naar het buitenland. Samen afzien op de col, samen genieten
+              achteraf.
             </p>
             <ul class="space-y-2">
               <li class="flex gap-3"><span class="font-title text-xl text-main-red">2026</span> Mojácar (Spanje), met
