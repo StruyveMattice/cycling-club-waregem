@@ -139,9 +139,9 @@ Vooraf verklappen we alleen het idee en het laatste uur; de rest is elk uur een 
 
 Staat ook op de affiche. Zo zien we het verlopen:
 
-- **Meedoen kan enkel aan de chalet**, zodat het een reden is om langs te komen. Een kaartje op de toog heeft een QR-code
-  naar een kort Google Formulier (in het Google-account van de club): naam, e-mailadres en de schiftingsvraag.
-  Geen smartphone? Dan vul je een strookje in en steek je het in de bus. Gratis, zonder aankoop, één keer per persoon.
+- **Meedoen kan enkel online, via de QR-code aan de chalet**, zodat het een reden is om langs te komen. Het kaartje op de
+  toog heeft een QR-code naar een kort Google Formulier (in het Google-account van de club): naam, e-mailadres en de
+  schiftingsvraag. Gratis, zonder aankoop, één keer per persoon.
 - **De schiftingsvraag:** "Hoeveel fietsers reden de laatste Lamett Classic?" Wie het dichtst bij het juiste aantal zit,
   wint. Bij gelijke stand wint wie het eerst meedeed.
 - **Meedoen kan tot 21 uur. Om 21.15 uur, midden in de massasprint, maken we de winnaar bekend** aan de chalet.
@@ -154,9 +154,64 @@ Staat ook op de affiche. Zo zien we het verlopen:
 
 Nog te regelen:
 - [ ] Bevestigen dat we 2 gratis inschrijvingen kunnen geven, en hoe: een kortingscode, of zelf inschrijven via het inschrijvingsplatform
-- [ ] Het Google Formulier maken, en een kaartje voor de toog met de QR-code ernaartoe
-- [ ] Strookjes en een bus voor wie liever op papier meedoet
+- [ ] Het Google Formulier maken (tekst hieronder) en de link doorgeven, zodat het kaartje met de QR-code gemaakt kan worden
 - [ ] Het juiste antwoord op de schiftingsvraag opzoeken
+
+### Het formulier
+
+Maak het aan in het Google-account van de club, met deze instellingen:
+- *E-mailadressen verzamelen: ingevoerd door respondent*. Dan vraagt Google zelf het e-mailadres en controleert het of het
+  een geldig adres is.
+- Inloggen met Google laat je uit, zodat iedereen snel kan meedoen.
+
+**Titel:** Win 2 inschrijvingen voor de Lamett Classic 2027
+
+**Beschrijving**
+```
+Doe mee aan de wedstrijd van Cycling Club Waregem op Waregem Wintert, zaterdag 5 december 2026.
+Wie het dichtst bij het juiste antwoord op de schiftingsvraag zit, wint 2 inschrijvingen voor de Lamett Classic 2027.
+Meedoen kan tot 21 uur. Om 21.15 uur maken we de winnaar bekend aan onze chalet aan de ijspiste.
+```
+
+**Vragen**
+1. *Voornaam*: kort antwoord, verplicht
+2. *Achternaam*: kort antwoord, verplicht
+3. *Hoeveel fietsers reden de laatste Lamett Classic?*: kort antwoord, verplicht, met de validatie *Getal → Geheel getal*
+4. *Nieuws ontvangen?*: selectievakje, niet verplicht:
+   "Ja, stuur me nieuws over de Lamett Classic en Cycling Club Waregem, bijvoorbeeld wanneer de inschrijvingen openen."
+5. *Akkoord*: selectievakje, verplicht:
+   "Ik ben minstens 18 jaar en ga akkoord met het wedstrijdreglement en de privacyverklaring hieronder."
+
+**Wedstrijdreglement en privacy** (als tekstblok onderaan het formulier)
+```
+Wedstrijdreglement
+- Organisator: Cycling Club Waregem. Meedoen is gratis en zonder aankoopverplichting, één keer per persoon, vanaf 18 jaar.
+  Bestuursleden van de club doen niet mee.
+- Meedoen kan tot zaterdag 5 december 2026 om 21 uur.
+- Wie het dichtst bij het juiste antwoord zit, wint. Bij gelijke stand wint wie het eerst meedeed.
+- De prijs: 2 inschrijvingen voor de Lamett Classic 2027. De prijs is niet inwisselbaar voor geld.
+- We maken de winnaar op 5 december om 21.15 uur bekend aan onze chalet en sturen de winnaar een mail.
+  Op sociale media noemen we enkel de voornaam, en alleen als de winnaar dat goedvindt.
+
+Privacy
+Cycling Club Waregem gebruikt je naam en e-mailadres alleen voor deze wedstrijd: om de winnaar te bepalen en te
+contacteren. Vink je aan dat je nieuws wilt, dan mailen we je ook over de Lamett Classic en de club; uitschrijven kan
+altijd. De gegevens van wie geen nieuws wil, wissen we uiterlijk op 31 december 2026.
+Je gegevens inkijken, verbeteren of laten wissen? Mail naar info@cyclingclubwaregem.be.
+```
+
+**Bevestiging na het verzenden**
+```
+Bedankt, je doet mee! Om 21.15 uur maken we de winnaar bekend aan onze chalet.
+Ondertussen: tijd voor de bevoorrading! 🥃
+```
+
+**De winnaar vinden**
+- Om 21 uur zet iemand het formulier op *Reacties niet meer accepteren*.
+- Open de reacties in een Google Sheet. De kolommen zijn dan: tijdstip, e-mailadres, voornaam, achternaam, schiftingsvraag.
+  Zet in een lege kolom `=ABS(E2-600)`, met het juiste aantal in plaats van 600, en trek de formule door.
+- Sorteer op die kolom en daarna op tijdstip: bovenaan staat de winnaar.
+- Deed iemand twee keer mee (zelfde e-mailadres), dan telt enkel de eerste deelname.
 
 ## Planning
 
@@ -206,8 +261,8 @@ Nog te regelen:
 - [ ] **Toogkaart** goed zichtbaar. Vertel actief over de club, zeker aan wie zelf fietst.
 - [ ] **Stories** doorheen de dag: opbouw, eerste soep, sfeer op het ijs, groepsfoto 's avonds, en elk uur de happy hour
       van dat moment ("Nu aan de chalet: de waaier!")
-- [ ] De **wedstrijd** voor de Lamett Classic 2027 (zie "Wedstrijd"): het kaartje met de QR-code op de toog, en om
-      21.15 uur de winnaar bekendmaken
+- [ ] De **wedstrijd** voor de Lamett Classic 2027 (zie "Wedstrijd"): het kaartje met de QR-code op de toog, om 21 uur
+      het formulier sluiten en om 21.15 uur de winnaar bekendmaken
 - [ ] Hou bij wat er verkocht wordt (soep, jenevers, hapjes, pintjes): handig voor volgend jaar
 
 ### Na afloop (6/12 tot 12/12)
@@ -255,6 +310,38 @@ Elk uur een andere happy hour 🔔 en het laatste uur wordt het helemaal zot.
 Bovendien kun je aan de chalet 2 inschrijvingen winnen voor de Lamett Classic 2027 🎁
 
 #cyclingclubwaregem #waregemwintert #waregem #ijspiste
+```
+
+**Delen met je persoonlijke account** (voor alle leden: bij het delen van het Facebook-evenement of de post)
+```
+Zaterdag 5 december staat onze wielerclub, Cycling Club Waregem, met een chalet aan de ijspiste op de Markt, en ik sta er ook 🎄🚴
+Kom gerust langs voor een jenever, verse soep of een warme choco. Elk uur is er een andere happy hour, en het laatste uur wordt het helemaal zot!
+Je kan er bovendien 2 inschrijvingen voor de Lamett Classic 2027 winnen 🎁
+Van 9.30 tot 22 uur. Hopelijk tot dan! 🍻
+```
+Voor een Instagram-story, met een linksticker naar het evenement:
+```
+5/12 sta ik aan onze chalet op Waregem Wintert 🎄
+Kom je een dreupel drinken? 🥃 @cyclingclubwaregem
+```
+
+**Delen met het account van de Lamett Classic**
+
+Facebook (het evenement delen, of de affiche posten):
+```
+Wie de Lamett Classic reed, kent de bevoorrading 😉
+Op zaterdag 5 december staat Cycling Club Waregem, de club achter de Lamett Classic, met een chalet aan de ijspiste
+op de Markt in Waregem.
+🥃 Jenever, verse soep, warme choco en hapjes
+🔔 Elk uur een andere happy hour
+🎁 Win er 2 inschrijvingen voor de Lamett Classic 2027!
+Van 9.30 tot 22 uur, iedereen welkom.
+Volg ook de club zelf: Cycling Club Waregem op Facebook en @cyclingclubwaregem op Instagram.
+```
+Instagram: de Collab-post verschijnt al vanzelf op het profiel van de Lamett Classic. Deel hem daarnaast in de story:
+```
+Win 2 inschrijvingen voor de Lamett Classic 2027 🎁
+Enkel aan de chalet van @cyclingclubwaregem, zaterdag 5/12 op Waregem Wintert 🎄
 ```
 
 **Teaser voor het laatste uur** (story of post in de laatste week)
