@@ -83,10 +83,10 @@ def defs():
 
 def bulb(x, y, angle, r, key):
     """A Christmas light hanging from (x, y), with its glow."""
-    return (f'<g transform="translate({x:.1f} {y:.1f}) rotate({angle:.1f})">'
-            f'<circle cx="0" cy="{18 * r:.1f}" r="{42 * r:.1f}" fill="url(#glow-{key})"/>'
+    return (f'<g class="bulb" transform="translate({x:.1f} {y:.1f}) rotate({angle:.1f})">'
+            f'<circle class="glow" cx="0" cy="{18 * r:.1f}" r="{42 * r:.1f}" fill="url(#glow-{key})"/>'
             f'<rect x="{-4.5 * r:.1f}" y="{-r:.1f}" width="{9 * r:.1f}" height="{9 * r:.1f}" rx="{2 * r:.1f}" fill="#0b2219"/>'
-            f'<ellipse cx="0" cy="{19 * r:.1f}" rx="{8 * r:.1f}" ry="{12 * r:.1f}" fill="{BULBS[key]}"/>'
+            f'<ellipse class="lamp" cx="0" cy="{19 * r:.1f}" rx="{8 * r:.1f}" ry="{12 * r:.1f}" fill="{BULBS[key]}"/>'
             f'<ellipse cx="{-2.6 * r:.1f}" cy="{15 * r:.1f}" rx="{2.3 * r:.1f}" ry="{4 * r:.1f}" fill="#fff" fill-opacity=".6"/></g>')
 
 def garland(w, h, y, sag, spans, per_span, r, seed, opacity=1.0):
@@ -121,6 +121,46 @@ def snowfall(w, h, dots, flakes, seed, s=1.0):
     f = "".join(flake(rnd.uniform(0, w), rnd.uniform(h * .15, h), rnd.uniform(16, 40) * s, rnd.uniform(.07, .15), rnd.uniform(0, 60))
                 for _ in range(flakes))
     return f'<svg class="layer" style="bottom:auto;height:{h:.0f}px" viewBox="0 0 {w:.1f} {h:.1f}">{d}{f}</svg>'
+
+def snow_layers(w, h, seed, s=1.0):
+    """Falling snow for the videos: two tiled layers that each fall exactly one tile per loop, so the video loops seamlessly."""
+    rnd, layers = random.Random(seed), []
+    for tile, count, rmin, rmax, omin, omax, sway in [(480, 26, 1.4, 3.2, .15, .4, 8), (900, 18, 2.6, 5.2, .3, .6, 14)]:
+        dots = "".join(f'<circle cx="{rnd.uniform(0, w):.1f}" cy="{rnd.uniform(0, tile):.1f}" r="{rnd.uniform(rmin, rmax) * s:.1f}" '
+                       f'fill="{CREAM}" fill-opacity="{rnd.uniform(omin, omax):.2f}"/>' for _ in range(count))
+        tiles = "".join(f'<g transform="translate(0 {k * tile})">{dots}</g>' for k in range(-1, int(h // tile) + 2))
+        layers.append(f'<g class="snowlayer" data-ht="{tile}" data-sway="{sway}">{tiles}</g>')
+    return f'<svg class="layer" style="bottom:auto;height:{h:.0f}px" viewBox="0 0 {w:.1f} {h:.1f}">{"".join(layers)}</svg>'
+
+# Moves the lights, snow, date tag and sticker to time t (seconds); the capture script calls renderAt() for every frame.
+ANIM_JS = """(() => {
+  const T = SECONDS;
+  let seed = 7;
+  const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const bulbs = [...document.querySelectorAll('.bulb')].map(g => ({
+    glow: g.querySelector('.glow'), lamp: g.querySelector('.lamp'), k: 1 + Math.floor(rand() * 3), p: rand() * 2 * Math.PI }));
+  const layers = [...document.querySelectorAll('.snowlayer')].map(el => ({ el, ht: +el.dataset.ht, sway: +el.dataset.sway, p: rand() * 2 * Math.PI }));
+  const tag = document.getElementById('tag'), tagBase = tag.getAttribute('transform');
+  const badge = document.getElementById('badge');
+  window.renderAt = t => {
+    const w = 2 * Math.PI * t / T;
+    for (const b of bulbs) {  // whole cycles per loop, so the twinkle loops seamlessly
+      const v = 0.5 + 0.5 * Math.sin(w * b.k + b.p);
+      b.glow.setAttribute('opacity', (0.3 + 0.7 * v).toFixed(3));
+      b.lamp.setAttribute('opacity', (0.72 + 0.28 * v).toFixed(3));
+    }
+    for (const l of layers) {
+      l.el.setAttribute('transform', `translate(${(l.sway * Math.sin(w + l.p)).toFixed(2)} ${((t / T) * l.ht).toFixed(2)})`);
+    }
+    tag.setAttribute('transform', tagBase.replace(/rotate\\(([-\\d.]+)/, () => `rotate(${(9 + 2 * Math.sin(w)).toFixed(3)}`));
+    if (badge) {
+      const { cx, cy, rot } = badge.dataset;
+      const s = 1 + 0.07 * Math.pow(Math.max(0, Math.sin(2 * w)), 6);
+      badge.setAttribute('transform', `rotate(${rot} ${cx} ${cy}) translate(${cx} ${cy}) scale(${s.toFixed(4)}) translate(${-cx} ${-cy})`);
+    }
+  };
+  renderAt(0);
+})();"""
 
 
 # ---- Knitted Christmas-sweater band with bikes and trees ------------------------------------
@@ -230,7 +270,7 @@ def badge(cx, cy, r, rot):
     top, line1, line2 = HAPPY
     text = lambda y, size, fill, s, extra="": (f'<text x="{cx}" y="{cy + y * r:.1f}" text-anchor="middle" font-family="Bebas" '
                                                f'font-size="{size * r:.1f}" fill="{fill}" {extra}>{s}</text>')
-    return (f'<g transform="rotate({rot} {cx} {cy})">'
+    return (f'<g id="badge" data-cx="{cx}" data-cy="{cy}" data-rot="{rot}" transform="rotate({rot} {cx} {cy})">'
             f'<polygon points="{pts}" transform="translate(4 6)" fill="#000" fill-opacity=".25"/>'
             f'<polygon points="{pts}" fill="{GOLD}"/>'
             f'<circle cx="{cx}" cy="{cy}" r="{r * .86:.1f}" fill="none" stroke="{RED_DARK}" stroke-width="2.5" stroke-dasharray="6 5"/>'
@@ -282,7 +322,7 @@ def bike_scene():
            f'<text x="176" y="76" font-family="Bebas" font-size="44" fill="{INK}" letter-spacing="1">{DAY}</text>'
            f'<text x="176" y="122" font-family="Bebas" font-size="44" fill="{RED}" letter-spacing="1">{MONTH}</text>'
            f'<text x="176" y="168" font-family="Bebas" font-size="40" fill="{INK}" letter-spacing="1">{HOURS}</text>')
-    p.append(f'<g transform="translate({hx - 40} {hy - 100}) rotate(9 40 100)">{tag}</g>')
+    p.append(f'<g id="tag" transform="translate({hx - 40} {hy - 100}) rotate(9 40 100)">{tag}</g>')
     p.append(f'<path d="M{hx - 6} {hy - 4} q 10 -14 16 2" fill="none" stroke="#e8d6b0" stroke-width="3"/>')
     if HAPPY:
         p.append(badge(-56, -218, 96, -12))
@@ -336,12 +376,14 @@ def page(body, w, h, unit="px", pdf=False):
 
 
 # ---- Designs --------------------------------------------------------------------------------
-def portrait(w, h, s, top, gaps, illus_w, lead_px, head_px, rib_px, cols, seed, lights_r=1.0):
-    """Shared layout of the A3 poster, the Instagram post and the story."""
+def portrait(w, h, s, top, gaps, illus_w, lead_px, head_px, rib_px, cols, seed, lights_r=1.0, anim=False):
+    """Shared layout of the A3 poster, the Instagram post and the story (anim=True: falling snow for the videos)."""
     band, band_h = knit(cols, w / cols)
     g = gaps
+    snow = (snowfall(w, h - band_h, 0, 7, seed, s) + snow_layers(w, h - band_h, seed, s) if anim
+            else snowfall(w, h - band_h, int(70 * s * h / 1587 * 1.4), 7, seed, s))
     return f"""<div class="canvas">{defs()}
-  {snowfall(w, h - band_h, int(70 * s * h / 1587 * 1.4), 7, seed, s)}
+  {snow}
   {garland(w, 190 * lights_r, -24 * lights_r, 48 * lights_r, 5, 5, .72 * lights_r, seed + 1, .55)}
   {garland(w, 190 * lights_r, -10 * lights_r, 62 * lights_r, 4, 6, lights_r, seed + 2)}
   <div class="flow" style="top:{top}px">
@@ -502,12 +544,12 @@ if want("affiche"):
     a3 = portrait(a3w, a3h, 1, top=112, gaps=(10, 34, 34, 24, 34), illus_w=990, lead_px=104, head_px=184, rib_px=74, cols=70, seed=1)
     pdf("affiche-a3", page(a3, 297, 420, "mm", pdf=True))
     png("affiche", page(a3, int(a3w), int(a3h)), int(a3w), int(a3h), scale=2)
+POST = dict(w=1080, h=1350, s=.86, top=84, gaps=(4, 16, 22, 14, 16), illus_w=860, lead_px=88, head_px=160, rib_px=62, cols=76, seed=2, lights_r=.9)
+STORY = dict(w=1080, h=1920, s=.96, top=270, gaps=(20, 62, 56, 36, 66), illus_w=980, lead_px=104, head_px=178, rib_px=72, cols=70, seed=4)
 if want("post"):
-    post = portrait(1080, 1350, .86, top=84, gaps=(4, 16, 22, 14, 16), illus_w=860, lead_px=88, head_px=160, rib_px=62, cols=76, seed=2, lights_r=.9)
-    png("post-instagram", page(post, 1080, 1350), 1080, 1350)
+    png("post-instagram", page(portrait(**POST), 1080, 1350), 1080, 1350)
 if want("story"):
-    story = portrait(1080, 1920, .96, top=270, gaps=(20, 62, 56, 36, 66), illus_w=980, lead_px=104, head_px=178, rib_px=72, cols=70, seed=4)
-    png("story-instagram", page(story, 1080, 1920), 1080, 1920)
+    png("story-instagram", page(portrait(**STORY), 1080, 1920), 1080, 1920)
 if want("facebook"):
     png("facebook-evenement", page(facebook_cover(), 1920, 1005), 1920, 1005)
 if want("toogkaart"):
@@ -516,3 +558,19 @@ if want("toogkaart"):
     png("toogkaart", page(sign, int(210 * MM), int(297 * MM)), int(210 * MM), int(297 * MM), scale=2)
 if want("drankkaart"):
     png("drankkaart-instagram", page(menu_post(), 1080, 1350), 1080, 1350)
+
+# Looping ad videos (8 s): only when asked for with the extra argument "video", because they take a minute or two.
+# Frames come from Chrome (capture.mjs, needs Node 22+), the MP4 from macOS AVFoundation (encode.swift): nothing to install.
+if "video" in only:
+    here, seconds, fps = pathlib.Path(__file__).resolve().parent, 8, 30
+    encoder = WORK / "encode"
+    subprocess.run(["swiftc", "-O", str(here / "encode.swift"), "-o", str(encoder)], check=True)
+    for name, args in [("video-story", STORY), ("video-post", POST)]:
+        src = WORK / f"{name}.html"
+        src.write_text(page(portrait(**args, anim=True) + f"<script>{ANIM_JS.replace('SECONDS', str(seconds))}</script>",
+                            args["w"], args["h"]))
+        frames = WORK / f"{name}-frames"
+        subprocess.run(["node", str(here / "capture.mjs"), CHROME, str(src), str(frames), str(args["w"]), str(args["h"]),
+                        str(seconds * fps), str(seconds)], check=True)
+        subprocess.run([str(encoder), str(frames), str(OUT / f"{name}.mp4"), str(fps)], check=True)
+        print("video", name)

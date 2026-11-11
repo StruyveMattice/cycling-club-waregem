@@ -20,8 +20,7 @@ zoveel mogelijk volgers en nieuwe renners maken.
 
 De gekozen ontwerpen staan in `v2/`: het gezellige kerstontwerp met een koersfiets vol kerstlichtjes, een
 kersttrui-boord met fietsjes, een gouden "Elk uur happy hour!"-sticker naast de fiets en een gouden regel over de
-wedstrijd. De sticker en de wedstrijdregel haal je weg met `HAPPY = None` en `CONTEST = None` bovenaan `generate.py`. De andere versies: `v3/` (hetzelfde ontwerp met de clubnaam groter,
-niet gekozen) en `v1/` (het eerste, strakkere ontwerp).
+wedstrijd. De sticker en de wedstrijdregel haal je weg met `HAPPY = None` en `CONTEST = None` bovenaan `generate.py`. Het eerste, strakkere ontwerp staat nog in `v1/`.
 
 | Bestand in `v2/` | Gebruik |
 |---|---|
@@ -30,9 +29,11 @@ niet gekozen) en `v1/` (het eerste, strakkere ontwerp).
 | `post-instagram.png` | Post voor Instagram en Facebook (1080×1350) |
 | `story-instagram.png` | Story voor Instagram en Facebook (1080×1920) |
 | `facebook-evenement.png` | Omslagfoto van het Facebook-evenement (1920×1005) |
+| `video-story.mp4` | Geanimeerde versie voor stories en reels (1080×1920, 8 seconden, loopt naadloos): voor de advertenties |
+| `video-post.mp4` | Geanimeerde versie voor de feed (1080×1350, 8 seconden) |
 | `drankkaart-instagram.png` | "Wat schenken we?": de drankkaart als post voor Instagram en Facebook (1080×1350). Nog voorlopig: wordt bijgewerkt zodra de kaart en de prijzen vastliggen. |
 | `toogkaart-a4.pdf`, `toogkaart.png` | Op de toog van de chalet: "Zin om mee te fietsen?" met een QR-code naar "Rij eens mee" |
-| `generate.py` | Maakt alles opnieuw na een wijziging (uren, aanbod…). Bovenaan staan de gegevens. |
+| `generate.py` | Maakt alles opnieuw na een wijziging (uren, aanbod…). Bovenaan staan de gegevens. De video's maak je met het extra argument `video` (een paar minuten); daarvoor gebruikt het `capture.mjs` en `encode.swift`. |
 
 De website kondigt de chalet ook aan, bovenaan cyclingclubwaregem.be. Die aankondiging verdwijnt vanzelf na 5 december.
 
@@ -213,6 +214,20 @@ Ondertussen: tijd voor de bevoorrading! 🥃
 - Sorteer op die kolom en daarna op tijdstip: bovenaan staat de winnaar.
 - Deed iemand twee keer mee (zelfde e-mailadres), dan telt enkel de eerste deelname.
 
+## Advertenties (Facebook en Instagram)
+
+- **Nu:** het advertentieaccount instellen in Meta Business Suite. Heeft de club geen btw-nummer, dan rekent Meta 21 % btw
+  bovenop het budget. Besteed alvast een klein deel (± 20 %) aan het promoten van het Facebook-evenement, gericht op
+  "Geïnteresseerd": wie dat aanklikt, krijgt vanzelf herinneringen van Facebook.
+- **De laatste week (28/11 tot 5/12):** de rest, met het meeste van donderdag 3 tot zaterdag 5 december, en op de dag zelf
+  tot in de vooravond. Gebruik `video-story.mp4` voor stories en reels, en `video-post.mp4` voor de feed.
+- **Instellingen:** minimumleeftijd 18 jaar (de advertentie noemt jenever), een straal van ± 15 km rond de Markt, en verder
+  een breed publiek.
+- **De boodschap:** de chalet, de datum, soep en warme choco, en de Lamett-wedstrijd. Maak happy hours of jenever niet de
+  haak van de advertentie.
+- **Meten:** bereik en "Geïnteresseerd" op Facebook, en op de dag zelf vragen hoe mensen van de chalet hoorden
+  (turven op het krijtbordje).
+
 ## Planning
 
 ### Deze week (tot 15/11): voorbereiden
@@ -224,6 +239,7 @@ Ondertussen: tijd voor de bevoorrading! 🥃
       3 mensen, plus iemand die om 9.30 uur de sleutel haalt
 - [ ] Affiches laten drukken (A3 voor uitstalramen, A4 voor prikborden)
 - [ ] De happy hours kiezen (voorstel hierboven), en in de mail aan de stad vragen of dat mag
+- [ ] Het advertentieaccount instellen en het Facebook-evenement promoten (zie "Advertenties")
 
 ### 16/11 tot 22/11: aankondigen
 
@@ -249,6 +265,7 @@ Ondertussen: tijd voor de bevoorrading! 🥃
 - [ ] Instagram-story met een **aftelsticker**: volgers kunnen daarmee een herinnering instellen
 - [ ] Herinnering in de WhatsApp-groep en in het Facebook-evenement ("nog 3 dagen!")
 - [ ] **Teaser** van het laatste uur, de massasprint (tekst hieronder)
+- [ ] **Advertenties** met de video's, vooral van donderdag 3 tot zaterdag 5 december (zie "Advertenties")
 - [ ] **Vrijdag 4/12, opening van de ijspiste** (16 uur dj, 19 uur kunstschaatsshow): ga met een paar leden kijken
       en deel kaartjes uit met "Morgen staan wij hier!". Vraag de stad even of dat mag.
 - [ ] Alles klaarzetten: wisselgeld, Payconiq-QR, prijsbord, toogkaart, bekers, afwasgerief, verlengkabel,
