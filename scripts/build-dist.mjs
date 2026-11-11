@@ -9,6 +9,7 @@ const files = [
   "robots.txt",
   "sitemap.xml",
   "assets/css/style.css",
+  "assets/agenda",
   "assets/fonts",
   "assets/img",
 ];
