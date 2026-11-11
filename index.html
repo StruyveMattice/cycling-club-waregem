@@ -65,7 +65,35 @@
     },
     "knowsAbout": ["Wielrennen", "Wielertoerisme", "Groepsritten"],
     "sameAs": ["https://www.strava.com/clubs/cyclingclubwaregem"],
-    "event": {
+    "event": [{
+      "@type": "Event",
+      "name": "CCW-chalet op Waregem Wintert",
+      "description": "Cycling Club Waregem baat een winterchalet uit aan de ijspiste op de Markt: jenevers, verse soep, warme hapjes, pintjes en frisdrank. Iedereen welkom!",
+      "startDate": "2026-12-05T09:30:00+01:00",
+      "endDate": "2026-12-05T22:00:00+01:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "isAccessibleForFree": true,
+      "image": "https://cyclingclubwaregem.be/assets/img/og-image.jpg",
+      "location": {
+        "@type": "Place",
+        "name": "Ijspiste Waregem Wintert",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Markt",
+          "postalCode": "8790",
+          "addressLocality": "Waregem",
+          "addressRegion": "West-Vlaanderen",
+          "addressCountry": "BE"
+        }
+      },
+      "organizer": {
+        "@type": "SportsClub",
+        "name": "Cycling Club Waregem",
+        "url": "https://cyclingclubwaregem.be/"
+      },
+      "url": "https://cyclingclubwaregem.be/#waregem-wintert"
+    }, {
       "@type": "Event",
       "name": "Lamett Classic 2027",
       "description": "Jaarlijkse toertocht van Cycling Club Waregem.",
@@ -90,7 +118,7 @@
         "url": "https://cyclingclubwaregem.be/"
       },
       "url": "https://www.lamettclassic.be/"
-    }
+    }]
   }
   </script>
 </head>
@@ -112,6 +140,67 @@
       height="160" fetchpriority="high" class="h-24 w-24 sm:h-32 sm:w-32 md:h-40 md:w-40 object-contain" />
   </header>
   <main>
+    <!-- Upcoming event. The script below the section removes it once the chalet has closed; delete this block,
+         the event in the JSON-LD and assets/agenda/ when cleaning up. -->
+    <section id="waregem-wintert" class="pt-8 bg-off-white px-4 sm:px-6 lg:px-8 scroll-mt-4">
+      <article
+        class="max-w-5xl mx-auto bg-white rounded-xl shadow-md overflow-hidden flex flex-col sm:flex-row text-left">
+        <time datetime="2026-12-05"
+          class="bg-main-red text-white font-title uppercase tracking-wide flex sm:flex-col items-baseline sm:items-center justify-center gap-x-2 px-6 py-3 sm:py-6 sm:w-48 shrink-0">
+          <span class="text-2xl">Zaterdag</span>
+          <span class="text-4xl sm:text-8xl leading-none">5</span>
+          <span class="text-2xl">december</span>
+        </time>
+        <div class="p-6 flex-1">
+          <p class="text-sm uppercase tracking-wide text-alternative flex items-center gap-2">
+            <svg aria-hidden="true" class="h-4 w-4 text-main-red" viewBox="-12 -12 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0V-10M-3-8 0-5.5 3-8" />
+              <path d="M0 0V-10M-3-8 0-5.5 3-8" transform="rotate(60)" />
+              <path d="M0 0V-10M-3-8 0-5.5 3-8" transform="rotate(120)" />
+              <path d="M0 0V-10M-3-8 0-5.5 3-8" transform="rotate(180)" />
+              <path d="M0 0V-10M-3-8 0-5.5 3-8" transform="rotate(240)" />
+              <path d="M0 0V-10M-3-8 0-5.5 3-8" transform="rotate(300)" />
+            </svg>
+            Waregem Wintert
+          </p>
+          <h2 class="font-title text-3xl sm:text-4xl tracking-wide uppercase mt-1 mb-2">Tijd voor de bevoorrading!</h2>
+          <p class="mb-4">
+            Op zaterdag 5 december baten we een van de winterchalets aan de ijspiste op de Markt uit. Kom langs voor
+            een jenever, verse soep of een warm hapje: na het schaatsen, terwijl de kinderen hun toeren draaien, of
+            gewoon voor de ambiance. Zin om mee te fietsen? Kom gerust een babbeltje doen: je mag
+            <a href="#rij-eens-mee" class="underline hover:text-main-red">3 keer gratis meerijden</a>.
+          </p>
+          <ul class="flex flex-wrap gap-2 mb-4 text-sm font-semibold">
+            <li class="bg-off-white rounded-full px-3 py-1">Jenevers</li>
+            <li class="bg-off-white rounded-full px-3 py-1">Verse soep</li>
+            <li class="bg-off-white rounded-full px-3 py-1">Warme hapjes</li>
+            <li class="bg-off-white rounded-full px-3 py-1">Pintjes &amp; frisdrank</li>
+          </ul>
+          <p class="font-semibold mb-4">
+            Van <time datetime="2026-12-05T09:30+01:00">9.30</time> tot <time datetime="2026-12-05T22:00+01:00">22 uur</time>
+            · Chalet aan de ijspiste, Markt, Waregem
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="assets/agenda/waregem-wintert-2026.ics"
+              class="inline-block bg-main-red text-white py-2 px-4 rounded-lg hover:bg-hover-red transition-colors">
+              Zet in je agenda
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Markt%2C%208790%20Waregem" target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block border-2 border-main-red text-main-red py-2 px-4 rounded-lg hover:bg-main-red hover:text-white transition-colors">
+              Route
+            </a>
+          </div>
+        </div>
+      </article>
+    </section>
+    <script>
+      // Remove the announcement once the chalet has closed
+      if (Date.now() > Date.parse("2026-12-05T22:00:00+01:00")) document.getElementById("waregem-wintert").remove();
+    </script>
+
     <section id="over-ons" class="py-8 bg-off-white text-center px-4 sm:px-6 lg:px-8">
       <!-- Heading -->
       <h2

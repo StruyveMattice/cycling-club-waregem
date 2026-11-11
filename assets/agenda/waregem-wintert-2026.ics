@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cycling Club Waregem//Website//NL
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:waregem-wintert-2026@cyclingclubwaregem.be
+DTSTAMP:20261111T120000Z
+DTSTART:20261205T083000Z
+DTEND:20261205T210000Z
+SUMMARY:CCW-chalet op Waregem Wintert
+LOCATION:Chalet aan de ijspiste\, Markt\, 8790 Waregem
+DESCRIPTION:Tijd voor de bevoorrading! Jenevers\, verse soep\, warme hapjes
+ \, pintjes en frisdrank aan de chalet van Cycling Club Waregem. Iedereen w
+ elkom!\nhttps://cyclingclubwaregem.be/
+URL:https://cyclingclubwaregem.be/#waregem-wintert
+END:VEVENT
+END:VCALENDAR
